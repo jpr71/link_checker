@@ -1,0 +1,7 @@
+runtime "python"
+
+exec "link_checker.py"
+
+pip 'email'
+
+remote
