@@ -17,22 +17,22 @@ for website in websites:
       if local_url not in broken_links:
         broken_links.add(local_url)
 
-    server = smtplib.SMTP('smtp.mail.com', 111)
+    server = smtplib.SMTP('smtp.gmail.com', 587)
 
     server.ehlo()
     server.starttls()
 
     server.ehlo()
-    server.login("test.com", "hello")
+    server.login("andersenlablinkchecker@gmail.com", "cegwas123")
 
     # Send the message via our own SMTP server, but don't include the
     # envelope header.
-    m = "Hey,\n" + "Iowa sucks and these links are not working in "+ website +":\n\t" + '\n\t'.join(broken_links)
-    recipients = ["a@gmail.com", "b@gmail.com"]
+    m = "Hey,\n" + "This is your daily link checker and these links are not working on "+ website.strip("https://") +":\n\t" + '\n\t'.join(broken_links)
+    recipients = ["danielecook@gmail.com", "joshuapr1@gmail.com"]
     message = text(m)
-    message['From'] = "abc@gmail.com"
+    message['From'] = "andersenlablinkchecker@gmail.com"
     message['To'] = ", ".join(recipients)
     message['Subject'] = "Broken links in " + website
 
-    server.sendmail("abc@gmail.com", recipients, message.as_string())
+    server.sendmail("andersenlablinkchecker@gmail.com", recipients, message.as_string())
     server.quit()

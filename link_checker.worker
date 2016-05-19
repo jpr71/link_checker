@@ -3,5 +3,7 @@ runtime "python"
 exec "link_checker.py"
 
 pip 'email'
+pip 'linkchecker'
+pip 'requests', '2.5.0'
 
 remote
