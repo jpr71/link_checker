@@ -2,7 +2,7 @@ import subprocess
 import smtplib
 from email.mime.text import MIMEText as text
 
-websites = ["http://andersenlab.org","https://www.elegansvariation.org"]
+websites = ["https://www.elegansvariation.org", "http://andersenlab.org"]
 
 for website in websites:
   cmd = ['linkchecker', website]
