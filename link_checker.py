@@ -2,18 +2,19 @@ import subprocess
 import smtplib
 from email.mime.text import MIMEText as text
 
-websites = ['http://andersenlab.org/', 'https://elegansvariation.org/']
+websites = ["http://andersenlab.org",'https://www.elegansvariation.org/']
 
 for website in websites:
   cmd = ['linkchecker', website]
   output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0].split('\n\n')
-
+  print "output: ", output
   urls = [x for x in output if x[0:3] == "URL"]
   broken_links = set()
 
   if urls:
     for url in urls:
       local_url = url.split('\n')[0].split('`')[1]
+
       if local_url not in broken_links:
         broken_links.add(local_url)
 
