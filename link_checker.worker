@@ -1,5 +1,5 @@
 runtime "python"
-
+stack "python-2.7"
 exec "link_checker.py"
 
 pip 'email'
