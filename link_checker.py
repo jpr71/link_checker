@@ -5,6 +5,7 @@ from email.mime.text import MIMEText as text
 websites = ["https://www.elegansvariation.org", "http://andersenlab.org"]
 
 for website in websites:
+  website = website.strip("'")
   cmd = ['linkchecker', website]
   output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0].split('\n\n')
   print "output: ", output
@@ -13,7 +14,7 @@ for website in websites:
 
   if urls:
     for url in urls:
-      local_url = url.split('\n')[0].split('`')[1]
+      local_url = url.split('\n')[0].split('`')[1].strip("'")
 
       if local_url not in broken_links:
         broken_links.add(local_url)
