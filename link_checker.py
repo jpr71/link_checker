@@ -36,7 +36,7 @@ for website in websites:
     # Send the message via our own SMTP server, but don't include the
     # envelope header.
     m = "Hey,\n" + "This is your daily link checker and these links are not working on "+ website.strip("https://") +":\n\n\t" + '\n\t'.join(broken_links) 
-    recipients = ["danielecook@gmail.com", "joshuapr1@gmail.com"]
+    recipients = ["danielecook@gmail.com"]
     message = text(m)
     message['From'] = "andersenlablinkchecker@gmail.com"
     message['To'] = ", ".join(recipients)
